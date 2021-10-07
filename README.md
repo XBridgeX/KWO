@@ -6,8 +6,6 @@ Keep Watch On!!
 
 ## 简易BDS启动器
 
-![](https://github.com/XBridgeX/KWO/blob/master/image/screenshort.png)
-
 😒winform你还要好看到哪里去啊！
 
 采用与LLWS相同的协议
