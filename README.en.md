@@ -1,6 +1,6 @@
 # KWO
 
-简体中文 | [English](https://github.com/XBridgeX/KWO/master/README.md)
+[简体中文](https://github.com/XBridgeX/KWO/blob/master/README.md) | English
 
 Keep Watch On!!
 
