@@ -34,6 +34,9 @@ namespace KWO
                         addLine($"[WS] connect with [{socket.ConnectionInfo.ClientIpAddress}:{socket.ConnectionInfo.ClientPort}]");
                         sockets.Add(socket, string.Empty);
                     }
+                    else
+                    {
+                    }
                 };
                 socket.OnMessage = (m) =>
                 {
@@ -57,8 +60,8 @@ namespace KWO
                     if (sockets.ContainsKey(socket))
                     {
                         addLine($"[WS] connect error whit [{socket.ConnectionInfo.ClientIpAddress}:{socket.ConnectionInfo.ClientPort}]:{e.Message}");
+                        //sockets.Remove(socket); 
                         socket.Close();
-                        sockets.Remove(socket);
                     }
                 };
             });
@@ -188,12 +191,18 @@ namespace KWO
         }
         public void runcmd(string cmd)
         {
+            addLine($"runcmd >> {cmd}");
             Form1.rt = true;
             Form1.bds.StandardInput.WriteLine(Form1.bds.StandardInput.Encoding.GetString(Encoding.UTF8.GetBytes(cmd)));
         }
         private void Onmessage(IWebSocketConnection socket, string m)
         {
             var raw = JObject.Parse(m);
+            if(raw["type"].ToString() == "pack")
+            {
+                socket.Send(Encrypt.Encrypted(sendError("服务端请求使用加密数据包"), k, iv));
+                return;
+            }
             string rawtext = AES.AesDecrypt(raw["params"]["raw"].ToString(), k, iv);
             JObject jj = JObject.Parse(rawtext);
             var j = JsonConvert.DeserializeObject<@params>(jj["params"].ToString());

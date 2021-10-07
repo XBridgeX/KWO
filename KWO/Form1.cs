@@ -190,7 +190,12 @@ namespace KWO
                 if (rt)
                 {
                     rt = false;
-                    wss.sendCMD(e.Data);
+                    try
+                    {
+                        wss.sendCMD(e.Data);
+                    }
+                    catch { }
+
                     return;
                 }
                 if (NoSelecter.Checked && e.Data == "No targets matched selector")
@@ -353,7 +358,7 @@ namespace KWO
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("版本：1.1.2.1\n作者：Lition\nEmial：dreamgqf@163.com\n如果你发现任何问题，可以联系我", "关于作者", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("版本：1.1.2.2\n作者：Lition\nEmial：dreamgqf@163.com\n如果你发现任何问题，可以联系我", "关于作者", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void 重载ToolStripMenuItem_Click(object sender, EventArgs e)
