@@ -3,7 +3,7 @@ Keep Watch On!!
 
 ## 简易BDS启动器
 
-😒winform你还要好看到那里去啊！
+😒winform你还要好看到哪里去啊！
 
 采用与LLWS相同的协议
 

@@ -58,7 +58,7 @@ namespace KWO
                     {
                         addLine($"[WS] connect error whit [{socket.ConnectionInfo.ClientIpAddress}:{socket.ConnectionInfo.ClientPort}]:{e.Message}");
                         socket.Close();
-                        sockets.Remove(socket);
+                        sockets.Remove(socket); 
                     }
                 };
             });
