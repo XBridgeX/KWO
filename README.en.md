@@ -1,4 +1,7 @@
 # KWO
+
+简体中文 | [English](https://github.com/XBridgeX/KWO/master/README.md)
+
 Keep Watch On!!
 
 ## simple BDS Launcher
