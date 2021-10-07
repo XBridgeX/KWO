@@ -223,9 +223,9 @@ namespace KWO
             {
                 try
                 {
-                    bds.StandardInput.WriteLine(bds.StandardInput.Encoding.GetString(Encoding.UTF8.GetBytes(CMDInput.Text)));
-                    CMDInput.Clear();
-                }
+            bds.StandardInput.WriteLine(bds.StandardInput.Encoding.GetString(Encoding.UTF8.GetBytes(CMDInput.Text)));
+            CMDInput.Clear();
+        }
                 catch (Exception ex)
                 {
                     addConsoleLine(ex.ToString());

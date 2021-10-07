@@ -209,7 +209,6 @@ namespace KWO
                         }
                         sockets[socket] = j.id;
                         tmpid = j.id;
-                        addLine($"[WS] runcmd >> {j.cmd}");
                         runcmd(j.cmd);
                     }
                     catch (Exception e) { Form1.console.AppendText($"[WS][ERROR] error when runcmd >>{e.Message}<<" + Environment.NewLine); }
@@ -217,7 +216,6 @@ namespace KWO
                 case "sendtext":
                     try
                     {
-                        addLine($"[WS] sendtext >> {j.text}");
                         SendAllText(j.text);
                     }
                     catch (Exception e) { Form1.console.AppendText($"[WS][ERROR] error when sendText >>{e.Message}<<" + Environment.NewLine); }
@@ -245,7 +243,6 @@ namespace KWO
                     }
                     break;
                 default:
-                    addLine($"[WS][ERROR] unknow pack >>{jj["action"]}<<");
                     break;
             }
         }
