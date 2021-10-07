@@ -6,6 +6,8 @@ Keep Watch On!!
 
 ## 简易BDS启动器
 
+![](image/screenshort.png)
+
 😒winform你还要好看到哪里去啊！
 
 采用与LLWS相同的协议
