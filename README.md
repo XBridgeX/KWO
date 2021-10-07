@@ -6,7 +6,7 @@ Keep Watch On!!
 
 ## 简易BDS启动器
 
-![](image/screenshort.png)
+![](https://github.com/XBridgeX/KWO/blob/master/image/screenshort.png)
 
 😒winform你还要好看到哪里去啊！
 
