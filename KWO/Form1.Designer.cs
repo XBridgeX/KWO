@@ -343,6 +343,7 @@ namespace KWO
             // 
             this.WS_KEY.Location = new System.Drawing.Point(80, 63);
             this.WS_KEY.Name = "WS_KEY";
+            this.WS_KEY.PasswordChar = '*';
             this.WS_KEY.Size = new System.Drawing.Size(100, 21);
             this.WS_KEY.TabIndex = 8;
             this.WS_KEY.TextChanged += new System.EventHandler(this.WS_KEY_TextChanged);

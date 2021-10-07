@@ -70,6 +70,8 @@ namespace KWO
                 console = bdsconsole;
                 this.FormClosing += Form1_FormClosed;
                 this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                WS_KEY.MouseHover += WS_KEY_MouseHover;
+                WS_KEY.MouseLeave += WS_KEY_MouseLeave;
                 try
                 {
                     bdspath = new FileInfo(fcfg.bdspath);
@@ -83,6 +85,17 @@ namespace KWO
             
             
        }
+
+        private void WS_KEY_MouseLeave(object sender, EventArgs e)
+        {
+            WS_KEY.PasswordChar = '*';
+        }
+
+        private void WS_KEY_MouseHover(object sender, EventArgs e)
+        {
+            this.WS_KEY.PasswordChar = Char.MinValue;
+        }
+
         private void Form1_FormClosed(object sender, FormClosingEventArgs e)
         {
             try
@@ -320,10 +333,9 @@ namespace KWO
 
         private void WS_KEY_TextChanged(object sender, EventArgs e)
         {
-            fcfg.wskey = WS_KEY.Text;
+            fcfg.wskey = WS_KEY.Text; 
             SAVE();
         }
-
 
         private void 配置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -358,7 +370,7 @@ namespace KWO
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("版本：1.1.2.2\n作者：Lition\nEmial：dreamgqf@163.com\n如果你发现任何问题，可以联系我", "关于作者", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("版本：1.1.2.3\n作者：Lition\nEmial：dreamgqf@163.com\n如果你发现任何问题，可以联系我", "关于作者", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void 重载ToolStripMenuItem_Click(object sender, EventArgs e)
