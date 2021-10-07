@@ -72,6 +72,7 @@ namespace KWO
                 this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 WS_KEY.MouseHover += WS_KEY_MouseHover;
                 WS_KEY.MouseLeave += WS_KEY_MouseLeave;
+                WS_STATUS_Light.MouseDoubleClick += WS_STATUS_Light_MouseDoubleClick;
                 try
                 {
                     bdspath = new FileInfo(fcfg.bdspath);
@@ -85,6 +86,19 @@ namespace KWO
             
             
        }
+
+        private void WS_STATUS_Light_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (WS_STATUS_Light.Text == "已关闭")
+                return;
+            if(MessageBox.Show("是否关闭websocket服务器？","KWO",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                wss.stop();
+                WS_STATUS_Light.ForeColor = Color.Maroon;
+                WS_STATUS_Light.Text = "已关闭";
+            }
+            
+        }
 
         private void WS_KEY_MouseLeave(object sender, EventArgs e)
         {

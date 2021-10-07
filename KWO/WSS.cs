@@ -70,6 +70,10 @@ namespace KWO
         {
             Form1.console.AppendText(t+Environment.NewLine);
         } 
+        public void stop()
+        {
+            wss.Dispose();
+        }
         public void sendClose()
         {
             foreach (var o in sockets)
