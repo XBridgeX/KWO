@@ -86,10 +86,6 @@ namespace XBridge.Config
         /// </summary>
         public string Regex { get; set; }
         /// <summary>
-        /// 权限
-        /// </summary>
-        public int permission { get; set; }
-        /// <summary>
         /// 响应组
         /// </summary>
         public Out @out { get; set; }

@@ -69,10 +69,6 @@ namespace KWO
         private void addLine(string t)
         {
             Form1.console.AppendText(t+Environment.NewLine);
-        } 
-        public void stop()
-        {
-            wss.Dispose();
         }
         public void sendClose()
         {

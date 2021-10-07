@@ -14,30 +14,57 @@ namespace KWO
 {
     public partial class Form2 : Form
     {
-        private string s1;
-        private string s2;
-        public Form2(string s,string z,string t)
+        private string s1 = string.Empty;
+        private string s2 = string.Empty;
+        public Form2(bool isnew,string s,string z,string t)
         {
             
             InitializeComponent();
             s1 = s;
             s2 = z;
-            ExeType.SelectedIndex = getIndex(t);
-            this.textBox1.Text = s;
-            this.textBox2.Text = z;
-            this.FormClosing += Form2_FormClosing;
+            if (isnew)
+            {
+                this.textBox1.ReadOnly = false;
+                this.FormClosing += Form2_FormClosing1;
+            }
+            else
+            {
+                ExeType.SelectedIndex = getIndex(t);
+                this.textBox1.Text = s;
+                this.textBox2.Text = z;
+            }
+
         }
 
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form2_FormClosing1(object sender, FormClosingEventArgs e)
         {
+            if (!string.IsNullOrEmpty(textBox1.Text))
+            {
+                NewSave();
+            }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             save();
             this.Close();
         }
-
+        private void NewSave()
+        {
+            var r = regex.regexs;
+            r.Add(new XBridge.Config.RegexItem
+            {
+                Regex = textBox1.Text,
+                @out = new XBridge.Config.Out
+                {
+                    text = textBox2.Text,
+                    type = getType(ExeType.SelectedIndex)
+                }
+            });
+            regex.regexs = r;
+            File.WriteAllText("regex.json", JsonConvert.SerializeObject(regex.regexs, Formatting.Indented));
+        }
         private void save()
         {
             var r = regex.regexs;
@@ -74,7 +101,6 @@ namespace KWO
         }
         private int getIndex(string a)
         {
-            //MessageBox.Show(a);
             switch (a)
             {
                 case "chat":

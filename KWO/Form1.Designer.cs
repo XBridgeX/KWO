@@ -65,6 +65,7 @@ namespace KWO
             this.视图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regex_new = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -113,27 +114,29 @@ namespace KWO
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.regex_edit,
             this.regex_del,
+            this.regex_new,
             this.重载ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
             // 
             // regex_edit
             // 
             this.regex_edit.Name = "regex_edit";
-            this.regex_edit.Size = new System.Drawing.Size(100, 22);
+            this.regex_edit.Size = new System.Drawing.Size(180, 22);
             this.regex_edit.Text = "编辑";
             this.regex_edit.Click += new System.EventHandler(this.regex_edit_Click);
             // 
             // regex_del
             // 
             this.regex_del.Name = "regex_del";
-            this.regex_del.Size = new System.Drawing.Size(100, 22);
+            this.regex_del.Size = new System.Drawing.Size(180, 22);
             this.regex_del.Text = "删除";
+            this.regex_del.Click += new System.EventHandler(this.regex_del_Click);
             // 
             // 重载ToolStripMenuItem
             // 
             this.重载ToolStripMenuItem.Name = "重载ToolStripMenuItem";
-            this.重载ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.重载ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.重载ToolStripMenuItem.Text = "重载";
             this.重载ToolStripMenuItem.Click += new System.EventHandler(this.重载ToolStripMenuItem_Click);
             // 
@@ -429,6 +432,13 @@ namespace KWO
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
+            // regex_new
+            // 
+            this.regex_new.Name = "regex_new";
+            this.regex_new.Size = new System.Drawing.Size(180, 22);
+            this.regex_new.Text = "新建";
+            this.regex_new.Click += new System.EventHandler(this.regex_new_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -501,6 +511,7 @@ namespace KWO
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重载ToolStripMenuItem;
         private System.Windows.Forms.TextBox bdsconsole;
+        private System.Windows.Forms.ToolStripMenuItem regex_new;
     }
 }
 

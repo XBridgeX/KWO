@@ -72,7 +72,6 @@ namespace KWO
                 this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                 WS_KEY.MouseHover += WS_KEY_MouseHover;
                 WS_KEY.MouseLeave += WS_KEY_MouseLeave;
-                WS_STATUS_Light.MouseDoubleClick += WS_STATUS_Light_MouseDoubleClick;
                 try
                 {
                     bdspath = new FileInfo(fcfg.bdspath);
@@ -86,20 +85,6 @@ namespace KWO
             
             
        }
-
-        private void WS_STATUS_Light_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (WS_STATUS_Light.Text == "已关闭")
-                return;
-            if(MessageBox.Show("是否关闭websocket服务器？","KWO",MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                wss.stop();
-                WS_STATUS_Light.ForeColor = Color.Maroon;
-                WS_STATUS_Light.Text = "已关闭";
-            }
-            
-        }
-
         private void WS_KEY_MouseLeave(object sender, EventArgs e)
         {
             WS_KEY.PasswordChar = '*';
@@ -370,7 +355,7 @@ namespace KWO
             if (form2 == null)
             {
                 var reg = regex.regexs.ToArray()[regexbox.SelectedIndex];
-                form2 = new Form2(reg.Regex, reg.@out.text, reg.@out.type);
+                form2 = new Form2(false,reg.Regex, reg.@out.text, reg.@out.type);
                 form2.FormClosed += Form2_FormClosed;
                 form2.Show();
             }
@@ -380,11 +365,16 @@ namespace KWO
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             form2 = null;
+            regexs.Items.Clear();
+            foreach (var i in regex.regexs)
+            {
+                regexs.Items.Add(i.Regex);
+            }
         }
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("版本：1.1.2.3\n作者：Lition\nEmial：dreamgqf@163.com\n如果你发现任何问题，可以联系我", "关于作者", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("版本：1.1.2.4\n作者：Lition\nEmial：dreamgqf@163.com\n如果你发现任何问题，可以联系我", "关于作者", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void 重载ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -401,6 +391,28 @@ namespace KWO
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "KWO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void regex_new_Click(object sender, EventArgs e)
+        {
+            if (form2 == null)
+            {
+                form2 = new Form2(true, string.Empty,string.Empty,"unknow");
+                form2.FormClosed += Form2_FormClosed;
+                form2.Show();
+            }
+        }
+
+        private void regex_del_Click(object sender, EventArgs e)
+        {
+            if (regexs.SelectedIndex == -1)
+                return;
+            regex.regexs.RemoveAt(regexs.SelectedIndex);
+            regexs.Items.Clear();
+            foreach (var i in regex.regexs)
+            {
+                regexs.Items.Add(i.Regex);
             }
         }
     }
