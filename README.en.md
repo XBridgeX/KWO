@@ -1,7 +1,7 @@
 # KWO
 Keep Watch On!!
 
-## 简易BDS启动器
+## simple BDS Launcher
 
 😒Winform, do you still want to look good? 
 
