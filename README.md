@@ -1,4 +1,7 @@
 # KWO
+
+简体中文|[English](https://github.com/XBridgeX/KWO/edit/master/README.en.md)
+
 Keep Watch On!!
 
 ## 简易BDS启动器
