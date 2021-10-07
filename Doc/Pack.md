@@ -189,5 +189,9 @@ KWO用于Websocket传输的json格式
 
 # 💬 websocket操作
 
-您需要实现一个websocket客户端，并到KWO
+您需要实现一个websocket客户端，并连接到KWO
+
+当KWO控制台有提示连接时，您的连接是有效的
+
+然后您就可以发送标准数据包了
 
