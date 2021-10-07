@@ -103,13 +103,25 @@ KWO用于Websocket传输的json格式
 
 ## 直接发送文本
 
-
 ``` json
 {
     "type":"pack",
     "cause":"plantext",
     "params":{
         "text":"哼哼 啊啊啊啊啊啊",
+    }
+}
+```
+
+## 调试信息
+
+
+``` json
+{
+    "type":"pack",
+    "cause":"debug",
+    "params":{
+        "msg":"此处返回信息不固定，作为描述使用",
     }
 }
 ```
@@ -152,6 +164,26 @@ KWO用于Websocket传输的json格式
         "cmd":"要向服务器中执行的命令",
         "id":"返回执行结果时需要附带执行id"
     }
+}
+```
+
+## 开启服务器
+
+```json
+{
+    "type":"pack",
+    "action":"start",
+    "params":{}
+}
+```
+
+## 关闭服务器
+
+```json
+{
+    "type":"pack",
+    "action":"stop",
+    "params":{}
 }
 ```
 
