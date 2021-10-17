@@ -14,6 +14,6 @@ Keep Watch On!!
 
 ## 开发文档
 
-[wiki](https://github.com/XBridgeX/KWO/wiki)
+[wiki](https://xbridgex.github.io/KWO/pack/)
 
 
